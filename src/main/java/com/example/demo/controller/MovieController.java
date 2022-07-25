@@ -1,13 +1,11 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.MovieDto;
-import com.example.demo.exception.MovieNotFoundException;
 import com.example.demo.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
@@ -34,11 +32,7 @@ public class MovieController {
 
     @GetMapping("/{id}")
     public MovieDto findById(@PathVariable("id") @Min(1) long id) {
-        try {
             return movieService.findById(id);
-        } catch (MovieNotFoundException ex) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), ex);
-        }
     }
 
     @GetMapping(value = "/by-topic", params = "topic")
