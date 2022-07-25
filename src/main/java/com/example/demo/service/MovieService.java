@@ -4,7 +4,6 @@ import com.example.demo.dto.MovieDto;
 import com.example.demo.exception.MovieNotFoundException;
 import com.example.demo.model.Movie;
 import com.example.demo.repo.MovieRepo;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
