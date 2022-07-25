@@ -15,7 +15,6 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 @NoArgsConstructor
 public class Movie {
