@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class MovieService {
+    private static final String EX_MESSAGE = "No item with such id!";
     private final MovieRepo movieRepo;
 
     @Autowired
@@ -31,9 +32,8 @@ public class MovieService {
     }
 
     public MovieDto findById(long id) {
-        Movie movie = movieRepo.findById(id).stream()
-                .findFirst()
-                .orElseThrow(MovieNotFoundException::new);
+        Movie movie = movieRepo.findById(id)
+                .orElseThrow(() -> new MovieNotFoundException(EX_MESSAGE));
 
         return new MovieDto(movie.getName(), movie.isLegal(), movie.getTopic(), movie.getYear());
     }
