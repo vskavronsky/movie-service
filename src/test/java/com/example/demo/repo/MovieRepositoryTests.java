@@ -20,6 +20,7 @@ public class MovieRepositoryTests {
     public void findByNameRepositoryTest() {
         movieRepo.save(TestDataHelper.movieTest());
         Optional<Movie> found = movieRepo.findByName("Rocky");
+
         assertEquals(TestDataHelper.movieTest().getName(),found.get().getName());
     }
 
@@ -27,6 +28,7 @@ public class MovieRepositoryTests {
     public void findMoviesByTopicRepositoryTest() {
         movieRepo.save(TestDataHelper.movieTest());
         List<Movie> found = movieRepo.findMoviesByTopic("Sport");
+
         assertEquals(TestDataHelper.movieTest().getTopic(),found.get(0).getTopic());
     }
 }

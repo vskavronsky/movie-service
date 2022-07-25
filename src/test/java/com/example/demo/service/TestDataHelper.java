@@ -6,9 +6,11 @@ import com.example.demo.model.Movie;
 import java.util.List;
 import java.util.Optional;
 
+
 public class TestDataHelper {
     static List<Movie> allMovieListTest() {
-        return List.of(new Movie("Iron Man", true, "Fantasy", 2008),
+        return List.of(
+                new Movie("Iron Man", true, "Fantasy", 2008),
                 new Movie("John Wick", false, "Thriller", 2014));
     }
     static Optional<Movie> optionalMovieTest() {
