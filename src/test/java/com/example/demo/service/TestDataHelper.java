@@ -13,6 +13,11 @@ public class TestDataHelper {
                 new Movie("Iron Man", true, "Fantasy", 2008),
                 new Movie("John Wick", false, "Thriller", 2014));
     }
+    static List<Movie> allMovieByTopic() {
+        return List.of(
+                new Movie("Iron Man", true, "Fantasy", 2008),
+                new Movie("Iron Man 2", false, "Fantasy", 2010));
+    }
     static Optional<Movie> optionalMovieTest() {
         return Optional.of(new Movie("John Wick", false, "Thriller", 2014));
     }

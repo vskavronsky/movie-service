@@ -53,15 +53,15 @@ public class MovieServiceTests {
 
     @Test
     public void findAllByTopicServiceTest() {
-        when(movieRepository.findAll()).thenReturn(TestDataHelper.allMovieListTest());
+        when(movieRepository.findMoviesByTopic("Fantasy")).thenReturn(TestDataHelper.allMovieByTopic());
 
-        List<MovieDto> movieDtoList = movieService.findMoviesByTopic("Thriller");
+        List<MovieDto> movieDtoList = movieService.findMoviesByTopic("Fantasy");
 
-        assertEquals(1, movieDtoList.size());
-        assertEquals("John Wick", movieDtoList.get(0).getName());
-        assertFalse(movieDtoList.get(0).isLegal());
-        assertEquals("Thriller", movieDtoList.get(0).getTopic());
-        assertEquals(2014, movieDtoList.get(0).getYear());
+        assertEquals(2, movieDtoList.size());
+        assertEquals("Iron Man", movieDtoList.get(0).getName());
+        assertTrue(movieDtoList.get(0).isLegal());
+        assertEquals("Fantasy", movieDtoList.get(0).getTopic());
+        assertEquals(2008, movieDtoList.get(0).getYear());
     }
 
     @Test
